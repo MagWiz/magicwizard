@@ -25,7 +25,7 @@ There are some development builds, you can find them here: https://magwiz.net/bu
 
 ## License
 
-Magiz Wizard source code are distributed under the [zlib/png license](LICENSE). Information regarding artwork can be found in a file [CREDITS](CREDITS).
+Magiz Wizard source code are distributed under the [zlib/png license](LICENSE). Information regarding artwork can be found in a file [CREDITS.md](CREDITS.md).
 
 ## Home page
 
