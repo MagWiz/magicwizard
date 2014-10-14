@@ -6,7 +6,7 @@
 
 ## Introduction
 
-Magic Wizard is a simply 2D platform game. Most game mechanis have been implemented, however it lacks dedicated graphics, audio and levels (although simply level editor is provided). I have started this project to learn some C++ game programming, thus many things would be coded in another way if I would have to rewrite everything.
+Magic Wizard is a simply 2D platform game. Most game mechanics have been implemented, however it lacks dedicated graphics, audio and levels (although simply level editor is being provided :) ). I have started this project to learn some C++ game programming, thus many things would be coded in another way if I would have to rewrite everything.
 
 ## Requirements
 
@@ -35,6 +35,7 @@ Magiz Wizard source code are distributed under the [zlib/png license](LICENSE). 
 
 https://magwiz.net
 
-## Screenshot
+## Screenshots
 
 ![Magic Wizard gameplay](https://magwiz.net/img/screenshots/MagicWizard_003.png)
+![Magic Wizard level change](https://magwiz.net/img/screenshots/MagicWizard_002.png)
