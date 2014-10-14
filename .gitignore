@@ -1,0 +1,9 @@
+SFML-2.0*
+mw*
+a.out
+*.swp
+src/*.o
+docs/*
+src/*.a
+*.kdev4
+*.kde4

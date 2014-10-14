@@ -1,0 +1,77 @@
+CPP=/usr/bin/i686-w64-mingw32-g++
+SFMLLIB="-lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio"
+DEV_DIR=/data
+SFML_DIR=${DEV_DIR}/SFML-2.1
+INCLUDEDIR=${SFML_DIR}/include
+LIBDIR=${SFML_DIR}/lib
+CPPFLAGS=-g -std=c++0x -Wall -I ${INCLUDEDIR} -L ${LIBDIR} -static-libgcc -static-libstdc++ -static -L src/
+BUILD_NAME=MagicWizard
+TMP_DIR=/tmp/jenkins-MagicWizard-ming32/${BUILD_NAME}
+SRC=src
+SFMLFLAGS=-lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
+SFML_LIBS=-lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
+CUSTOMFLAGS=-O4
+BUILD_DIR=${DEV_DIR}/builds/${BUILD_NAME}
+TIMESTAMP=`date +%Y%m%d%H%M%S`
+ARTIFACT=${BUILD_DIR}/${BUILD_NAME}-windows-${TIMESTAMP}.zip
+
+BUILDS=${SRC}/magicsprite.a ${SRC}/audio.a ${SRC}/tile.a ${SRC}/home.a ${SRC}/hud.a ${SRC}/character.a ${SRC}/background.a ${SRC}/game.a ${SRC}/main.a
+SOURCES=${SRC}/magicsprite.cpp ${SRC}/audio.cpp ${SRC}/tile.cpp ${SRC}/home.cpp ${SRC}/hud.cpp ${SRC}/character.cpp ${SRC}/background.cpp ${SRC}/game.cpp ${SRC}/main.cpp
+
+
+
+
+
+
+all: mw.exe
+
+
+src/magicsprite.a: src/magicsprite.cpp src/magicsprite.h
+	${CPP} ${CPPFLAGS} ${CUSTOMFLAGS} -c ${SRC}/magicsprite.cpp -o ${SRC}/magicsprite.a ${SFML_LIBS}
+
+src/audio.a: src/audio.cpp src/audio.h
+	${CPP} ${CPPFLAGS} ${CUSTOMFLAGS} -c ${SRC}/audio.cpp -o ${SRC}/audio.a ${SFML_LIBS}
+
+src/home.a: src/home.cpp src/home.h
+	${CPP} ${CPPFLAGS} ${CUSTOMFLAGS} -c ${SRC}/home.cpp -o ${SRC}/home.a ${SFML_LIBS}
+
+src/hud.a: src/hud.cpp src/hud.h
+	${CPP} ${CPPFLAGS} ${CUSTOMFLAGS} -c ${SRC}/hud.cpp -o ${SRC}/hud.a ${SFML_LIBS}
+
+src/tile.a: src/tile.cpp src/tile.h
+	${CPP} ${CPPFLAGS} ${CUSTOMFLAGS} -c ${SRC}/tile.cpp -o ${SRC}/tile.a ${SFML_LIBS}
+
+src/background.a: src/background.cpp src/background.h
+	${CPP} ${CPPFLAGS} ${CUSTOMFLAGS} -c ${SRC}/background.cpp -o ${SRC}/background.a ${SFML_LIBS}
+
+src/character.a: src/character.cpp src/character.h
+	${CPP} ${CPPFLAGS} ${CUSTOMFLAGS} -c ${SRC}/character.cpp -o ${SRC}/character.a ${SFML_LIBS}
+
+src/game.a: src/game.cpp src/game.h
+	${CPP} ${CPPFLAGS} ${CUSTOMFLAGS} -c ${SRC}/game.cpp -o ${SRC}/game.a ${SFML_LIBS}
+
+
+src/main.a: src/main.cpp src/game.o
+	${CPP} ${CPPFLAGS} ${CUSTOMFLAGS} -c ${SRC}/main.cpp -o ${SRC}/main.a ${SFML_LIBS}
+
+
+a.out:
+	${CPP}  ${SRC}/audio.cpp ${SRC}/tile.cpp ${SRC}/home.cpp ${SRC}/hud.cpp ${SRC}/character.cpp ${SRC}/background.cpp ${SRC}/main.cpp  -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio -O4  ${CPPFLAGS} 
+
+mw.exe: ${BUILDS}
+	${CPP} ${CPPFLAGS} ${CUSTOMFLAGS} ${BUILDS} ${SFML_LIBS} -o mw.exe
+
+clean:
+	rm -rf mw src/*.o src/*.a 
+
+build: mw.exe
+	rm -rf ${TMP_DIR}}
+	mkdir -p ${TMP_DIR}
+	rsync -Pa --exclude *xcf --exclude *.bz2  --exclude *.orig  assets ${TMP_DIR}/
+	cp mw.exe ${TMP_DIR}/
+	cp -r ${DEV_DIR}/mingw32dlls/*dll ${TMP_DIR}/
+	cp -r ${SFML_DIR}/bin/*dll ${TMP_DIR}/
+	du -sh ${TMP_DIR}/
+	export CUR_DIR=$PWD/../
+	cd ${TMP_DIR} && cd .. && zip -r ${BUILD_NAME}.zip ${BUILD_NAME} && cp ${BUILD_NAME}.zip ${ARTIFACT};
+	ls -lah ${BUILD_DIR}
