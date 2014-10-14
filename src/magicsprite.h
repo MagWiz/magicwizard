@@ -18,11 +18,10 @@ public:
     MagicSprite();
 	void animate(float);
 	void collect(float);
-		bool active;
+	bool active;
 
-		bool toRemove;
-
-		float speed;
+	bool toRemove;
+	float speed;
 
 	float startY;
 	float currentY;

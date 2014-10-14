@@ -31,3 +31,6 @@ Magiz Wizard source code are distributed under the [zlib/png license](LICENSE). 
 
 https://magwiz.net
 
+## Screenshot
+
+![Magic Wizard gameplay](https://magwiz.net/img/screenshots/MagicWizard_003.png)

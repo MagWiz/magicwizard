@@ -58,7 +58,6 @@ void MagicSprite::collect(float deltaTime)
         	diff = 1;
 
         directionModifier = 1;
-        //std::cout << active << " " << toRemove << " " << currentY << " " <<  startY << " " << " " << " " << "collect " << diff << std::endl;
         float movement = 10;
         movement = -speed * deltaTime;
         if ((movement > 2.0f) || (movement < -2.0f) || (movement==0.0f))
@@ -70,8 +69,6 @@ void MagicSprite::collect(float deltaTime)
         setColor(sf::Color(245, 121, 0, 255 - diff));
 
             move(0, abs(movement) * -3);
-            //scale(1.01, 1.01);
-
 
             if (startY - getPosition().y > 255)
             {
