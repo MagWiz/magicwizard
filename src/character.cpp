@@ -184,7 +184,7 @@ void Character::jump(float deltaTime)
 
 
 void Character::fall(float deltaTime)
-
+{
     if (jumping == 2)
     {
         velocity.y = 30 * jumpSpeed;
