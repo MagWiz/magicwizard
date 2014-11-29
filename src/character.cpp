@@ -82,6 +82,7 @@ Character::Character()
     wizRig [3] = wr4;
     if (!texturewizard.loadFromFile("assets/gfx/wizard_2.png"))
         exit(1);
+    texturewizard.setSmooth(true);
     spritewizard.setTexture(texturewizard);
     spritewizard.setTextureRect(wl1);
     spritewizard.scale(0.8, 0.5);

@@ -57,6 +57,20 @@ void Tile::loadTiles()
     if (!textureExit.loadFromFile("assets/gfx/back/exit.png"))
         exit(1);
 
+    texturegroundQ.setSmooth(true);
+    texturegroundW.setSmooth(true);
+    texturegroundE.setSmooth(true);
+    texturegroundA.setSmooth(true);
+    texturegroundS.setSmooth(true);
+    texturegroundD.setSmooth(true);
+    texturegroundZ.setSmooth(true);
+    texturegroundX.setSmooth(true);
+    texturegroundC.setSmooth(true);
+    texturegroundR.setSmooth(true);
+    texturegroundT.setSmooth(true);
+    texturegroundF.setSmooth(true);
+    texturegroundG.setSmooth(true);
+    
 }
 
 void Tile::addExit(int lineX, int lineY)

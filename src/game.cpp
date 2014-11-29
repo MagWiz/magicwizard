@@ -361,6 +361,8 @@ void Game::logicLoop()
         /// Moves background
         bgd.spriteback.setPosition(bgd.spriteback.getPosition().x , (-character.spritewizard.getPosition().y / 16 - 20) - 40);
 
+	
+	
         bool colis = false;
         int colisDirectionX = MWEngine::STOP;
         if ((direction == MWEngine::STOP) && (character.moving == 1))
@@ -895,6 +897,9 @@ void Game::logicLoop()
 
                     colStar = colCounter;
 
+		    
+		            //particles = ParticleSystem(1000);
+
                     hud.collectStar();
 
                     audioEngine.playStar();
@@ -990,7 +995,6 @@ void Game::drawLoop()
     }
 
 
- 
     window.display();
 }
 
@@ -1018,6 +1022,8 @@ void Game::restartLevel()
     character.bloodFrame = 5;
     bgd.spriteback.setPosition(-350, (-character.spritewizard.getPosition().y / 16 - 20) - 400);
     audioEngine.restartLevel();
+        particles = ParticleSystem(10000);
+
 }
 
 void Game::drawCharacterBlood()
@@ -1064,7 +1070,18 @@ void Game::drawGamePlay()
 
     window.draw(bgd.spriteback);
     window.draw(bgd.spritebackMountainBack);
+    
+    sf::Vector2f parPos = sf::Vector2f(character.spritewizard.getPosition());
+    
+    parPos.x =parPos.x + (character.spritewizard.getLocalBounds().width)/2;
+    parPos.y =parPos.y + (character.spritewizard.getLocalBounds().height)/2;
+    
+    
+    particles.setEmitter(parPos);
 
+    sf::Time tmpTime(dT);
+    
+      particles.update(tmpTime);
     //window.draw(bgd.spritebackMountainCenter);
     window.draw(bgd.spritebackMountainFront);
 
@@ -1084,7 +1101,10 @@ void Game::drawGamePlay()
 
     /** Drawing blood - if necessary */
     if (character.bloodFrame > 4)
-        window.draw(character.spritewizard);
+        window.draw(character.spritewizard, &spriteShader);
+
+    
+        
 
 
     /** DEBUG DRAW */
@@ -1093,6 +1113,15 @@ void Game::drawGamePlay()
         window.draw(rct1);
         window.draw(rctColl);
     }
+    
+    
+    if ((character.jumping==3) || (character.jumping==1))
+    {
+      window.draw(particles);
+    }
+    
+    
+    
     window.setView(defaultView);
 
     /** Drawing HUD head up display */
@@ -1173,7 +1202,17 @@ Game::Game(int screenWidthInit, int screenHeightInit)
     , showRect(false)
     , defaultView(window.getDefaultView())
     , gameView(sf::FloatRect(0, 0, 800, 600))
+    , particles(10)
+   
 {
+  
+  if (!spriteShader.loadFromFile("assets/shaders/full.vert", "assets/shaders/hello.frag"))
+{
+  
+  std::exit(1);
+}
+
+  
     screenWidth = screenWidthInit;
     screenHeight = screenHeightInit;
 
@@ -1252,6 +1291,7 @@ void Game::startLevel(int levelNumber)
     audioEngine.playMusicStartLevel();
     level = levelNumber;
     hud.setLevel(level);
+    
 
 
 }

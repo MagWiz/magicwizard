@@ -8,10 +8,13 @@ SFMLFLAGS=-lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
 SFML_LIBS=-lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
 CUSTOMFLAGS=-O4
 
-BUILDS=${SRC}/magicsprite.o ${SRC}/audio.o ${SRC}/tile.o ${SRC}/home.o ${SRC}/hud.o ${SRC}/character.o ${SRC}/background.o ${SRC}/game.o ${SRC}/main.o
+BUILDS=${SRC}/magicsprite.o ${SRC}/audio.o ${SRC}/tile.o ${SRC}/home.o ${SRC}/hud.o ${SRC}/character.o ${SRC}/background.o ${SRC}/game.o ${SRC}/main.o ${SRC}/particlesystem.o
 SOURCES=${SRT}/magicsprite.cpp ${SRC}/audio.cpp ${SRC}/tile.cpp ${SRC}/home.cpp ${SRC}/hud.cpp ${SRC}/character.cpp ${SRC}/background.cpp ${SRC}/game.cpp ${SRC}/main.cpp
 
 all: mw
+
+# src/src/particlesystem.o: src/particlesystem.cpp 
+	${CPP} ${CPPFLAGS} ${CUSTOMFLAGS} -c ${SRC}/particlesystem.cpp -o ${SRC}particlesystem.o ${SFML_LIBS}
 
 src/magicsprite.o: src/magicsprite.cpp src/magicsprite.h
 	${CPP} ${CPPFLAGS} ${CUSTOMFLAGS} -c ${SRC}/magicsprite.cpp -o ${SRC}/magicsprite.o ${SFML_LIBS}
