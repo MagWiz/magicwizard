@@ -3,7 +3,7 @@ compiler:
   - gcc
 
 before_script:
-  - sudo add-apt-repository ppa:sonkun/sfml-stable
+  - sudo add-apt-repository ppa:sonkun/sfml-stable -y
   - sudo apt-get update -q
   - sudo apt-get install sfml -y
 
