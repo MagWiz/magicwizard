@@ -1,6 +1,10 @@
 language: cpp
 compiler:
   - gcc
-install:
-  - sudo apt-get install libsfml-dev
+
+before_script:
+  - sudo add-apt-repository ppa:sonkun/sfml-stable
+  - sudo apt-get update -q
+  - sudo apt-get install sfml -y
+
 script: make
