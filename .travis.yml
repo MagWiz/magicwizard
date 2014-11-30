@@ -5,7 +5,7 @@ compiler:
 before_script:
   - sudo add-apt-repository ppa:sonkun/sfml-stable -y
   - sudo apt-get update -q
-  - apt-cache search |grep sfml
+  - apt-cache search sfml
   - sudo apt-get install sfml -y
 
 script: make
