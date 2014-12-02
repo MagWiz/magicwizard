@@ -1,6 +1,10 @@
 language: cpp
 compiler:
   - gcc
-install:
-  - sudo apt-get install libsfml-dev
+
+before_script:
+  - wget http://sfml-dev.org/download/sfml/2.1/SFML-2.1-linux-gcc-64bits.tar.bz2 -O /tmp/sfml.tar.bz2
+  - tar -xjvf /tmp/sfml.tar.bz2
+  - cp -r SFML-2.1/* /usr/
+
 script: make
