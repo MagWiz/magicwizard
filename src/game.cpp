@@ -1022,7 +1022,7 @@ void Game::restartLevel()
     character.bloodFrame = 5;
     bgd.spriteback.setPosition(-350, (-character.spritewizard.getPosition().y / 16 - 20) - 400);
     audioEngine.restartLevel();
-        particles = ParticleSystem(10000);
+       // particles = ParticleSystem(10000);
 
 }
 
@@ -1077,11 +1077,11 @@ void Game::drawGamePlay()
     parPos.y =parPos.y + (character.spritewizard.getLocalBounds().height)/2;
     
     
-    particles.setEmitter(parPos);
+    //particles.setEmitter(parPos);
 
     sf::Time tmpTime(dT);
     
-      particles.update(tmpTime);
+      //particles.update(tmpTime);
     //window.draw(bgd.spritebackMountainCenter);
     window.draw(bgd.spritebackMountainFront);
 
@@ -1115,10 +1115,10 @@ void Game::drawGamePlay()
     }
     
     
-    if ((character.jumping==3) || (character.jumping==1))
-    {
-      window.draw(particles);
-    }
+    //if ((character.jumping==3) || (character.jumping==1))
+    //{
+    // window.draw(particles);
+    //}
     
     
     
@@ -1202,7 +1202,7 @@ Game::Game(int screenWidthInit, int screenHeightInit)
     , showRect(false)
     , defaultView(window.getDefaultView())
     , gameView(sf::FloatRect(0, 0, 800, 600))
-    , particles(10)
+    //, particles(10)
    
 {
   

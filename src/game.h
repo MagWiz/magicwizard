@@ -9,7 +9,6 @@
 #include "audio.h"
 #include "enums.h"
 #include <utility>
-#include "particlesystem.cpp"
 
 namespace MWEngine
 {
@@ -53,7 +52,6 @@ private:
 
     sf::View defaultView;
     sf::View gameView;
-    ParticleSystem particles;
     sf::FloatRect characterOldPos;
 
     int alive;
