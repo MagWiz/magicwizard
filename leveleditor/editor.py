@@ -1,13 +1,10 @@
 #!/usr/bin/env python3
 
-import sfml as sf
-from time import sleep
-
-from collections import OrderedDict
-
 import os
-
 import shutil
+from time import sleep
+import sfml as sf
+from collections import OrderedDict
 
 SIZE_X = 800
 SIZE_Y = 600
@@ -385,7 +382,6 @@ while w.is_open:
                     tile_manager.data[my_y] = ''.join(new_line)
                     tile_manager.init_tyles_types()
             else:
-                print ("HERE IS A CHECK", mouse_select)
                 current_index = mouse_select
                 current_draw = tile_manager.available_letters[current_index]
         elif type(event) is sf.MouseButtonEvent and event.button is sf.Mouse.RIGHT and not check_mouse(my_x, my_y, hud_rectangle):
