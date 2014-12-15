@@ -1103,7 +1103,8 @@ void Game::drawGamePlay()
     if (character.bloodFrame > 4)
         window.draw(character.spritewizard, &spriteShader);
 
-    
+     window.draw(character.spritewizard);
+
         
 
 
