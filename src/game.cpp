@@ -1100,8 +1100,8 @@ void Game::drawGamePlay()
     window.draw(tile.spriteExit);
 
     /** Drawing blood - if necessary */
-    if (character.bloodFrame > 4)
-        window.draw(character.spritewizard, &spriteShader);
+    // if (character.bloodFrame > 4)
+    //     window.draw(character.spritewizard, &spriteShader);
 
      window.draw(character.spritewizard);
 
@@ -1213,6 +1213,13 @@ Game::Game(int screenWidthInit, int screenHeightInit)
   std::exit(1);
 }
 
+  
+  
+  if(!offscreen.create(1280,720,false))
+  {
+    std::exit(1);
+  }
+  
   
     screenWidth = screenWidthInit;
     screenHeight = screenHeightInit;

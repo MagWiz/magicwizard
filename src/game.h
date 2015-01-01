@@ -15,7 +15,6 @@ namespace MWEngine
 class Game
 {
 
-
 private:
     MWEngine::Audio audioEngine;
     MWEngine::Tile tile;
@@ -29,6 +28,8 @@ private:
 
     MWEngine::Home homeScreen;
 
+    sf::RenderTexture offscreen;
+    
     sf::VideoMode ownVideoMode;
     sf::RenderWindow window;
         sf::FloatRect wizardPos;
