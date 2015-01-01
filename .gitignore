@@ -7,3 +7,5 @@ docs/*
 src/*.a
 *.kdev4
 *.kde4
+*.kate-swp
+

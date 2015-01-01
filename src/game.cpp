@@ -523,9 +523,9 @@ void Game::logicLoop()
 
                     if (showRect)
                     {
-                        window.draw(rct1);
-                        window.draw(rct1);
-                        window.draw(rct2);
+                        offscreen.draw(rct1);
+                        offscreen.draw(rct1);
+                        offscreen.draw(rct2);
                     }
 
 
@@ -675,7 +675,7 @@ void Game::logicLoop()
         if (runningTime==0.0f)
         {
             speedGear = 0;
-            gameView.setSize(800, 600);
+            gameView.setSize(screenWidth, screenHeight);
 
             characterSpeed = 1.0f;
         }
@@ -928,14 +928,11 @@ void Game::logicLoop()
            // TODO: remove
         }
     }
+    window.clear(sf::Color(0, 0, 0));
+offscreen.clear(sf::Color(0,0,0));
+    
 
-    window.clear(sf::Color(255, 255, 255));
 
-    if (gameState == STATE_MENU)
-
-    {
-        drawHome();
-    }
 
     /*
 
@@ -965,13 +962,20 @@ void Game::drawLoop()
         DRAWING
 
         */
+    
+    if (gameState == STATE_MENU)
+    {
+        drawHome();
+    }
+    
+    
     if (((gameState == STATE_GAMEPLAY) || (gameState == STATE_LOSTLIFE))  && (!nextLevel))
         drawGamePlay();
 
 
     if (gameState == STATE_LOSTLIFE)
     {
-        window.draw(hud.pressToContinue);
+        offscreen.draw(hud.pressToContinue);
     }
 
     if ((gameState == STATE_GAMEPLAY) && (alive == 0) && (character.bloodFrame > 0) && (!nextLevel))
@@ -995,7 +999,8 @@ void Game::drawLoop()
     }
 
 
-    window.display();
+        updateOffScreen();
+
 }
 
 /**
@@ -1004,11 +1009,13 @@ void Game::drawLoop()
     */
 void Game::drawHome()
 {
-    window.setView(defaultView);
+    offscreen.setView(defaultView);
     homeScreen.animate(deltaTime, screenHeight);
-    window.draw(bgd.spritebackMenu);
-    window.draw(homeScreen.textTitle);
-    window.draw(homeScreen.textStart);
+    offscreen.draw(bgd.spritebackMenu);
+    offscreen.draw(homeScreen.textTitle);
+    offscreen.draw(homeScreen.textStart);
+    updateOffScreen();
+
 }
 
 void Game::restartLevel()
@@ -1028,37 +1035,37 @@ void Game::restartLevel()
 
 void Game::drawCharacterBlood()
 {
-    window.setView(gameView);
-    window.draw(character.spriteblood);
+    offscreen.setView(gameView);
+    offscreen.draw(character.spriteblood);
 }
 
 void Game::drawGameOver()
 {
-    window.setView(gameView);
-    window.draw(hud.gameOver);
+    offscreen.setView(gameView);
+    offscreen.draw(hud.gameOver);
 }
 
 
 void Game::drawStartLevel()
 {
-    window.setView(defaultView);
-    window.draw(bgd.spriteStartLevel);
-    window.draw(hud.startLevel);
+    offscreen.setView(defaultView);
+    offscreen.draw(bgd.spriteStartLevel);
+    offscreen.draw(hud.startLevel);
 }
 
 void Game::drawTrees()
 {
-    //window.draw(bgd.spriteback);
+    //offscreen.draw(bgd.spriteback);
     // for (int i = 0; i < 6; i++)
     // {
-    //     window.draw(bgd.trees3[i]);
+    //     offscreen.draw(bgd.trees3[i]);
     // }
 
     // /** Drawing trees */
     // for (int i = 0; i < 4; i++)
     // {
-    //     window.draw(bgd.trees2[i]);
-    //     window.draw(bgd.trees[i]);
+    //     offscreen.draw(bgd.trees2[i]);
+    //     offscreen.draw(bgd.trees[i]);
     // }
 }
 
@@ -1066,10 +1073,10 @@ void Game::drawGamePlay()
 {
     /** Drawing background */
 
-    window.setView(gameView);
+    offscreen.setView(gameView);
 
-    window.draw(bgd.spriteback);
-    window.draw(bgd.spritebackMountainBack);
+    offscreen.draw(bgd.spriteback);
+    offscreen.draw(bgd.spritebackMountainBack);
     
     sf::Vector2f parPos = sf::Vector2f(character.spritewizard.getPosition());
     
@@ -1082,14 +1089,14 @@ void Game::drawGamePlay()
     sf::Time tmpTime(dT);
     
       //particles.update(tmpTime);
-    //window.draw(bgd.spritebackMountainCenter);
-    window.draw(bgd.spritebackMountainFront);
+    //offscreen.draw(bgd.spritebackMountainCenter);
+    offscreen.draw(bgd.spritebackMountainFront);
 
     /** Drawing a cloud */
-    window.draw(bgd.spriteCloud);
+    offscreen.draw(bgd.spriteCloud);
 
     /** Drawing a planet */
-    window.draw(bgd.spriteplanet);
+    offscreen.draw(bgd.spriteplanet);
 
     /** Drawing trees */
     //drawTrees();
@@ -1097,13 +1104,13 @@ void Game::drawGamePlay()
     drawEnvironment();
 
     /** Drawing exit */
-    window.draw(tile.spriteExit);
+    offscreen.draw(tile.spriteExit);
 
     /** Drawing blood - if necessary */
     // if (character.bloodFrame > 4)
-    //     window.draw(character.spritewizard, &spriteShader);
+    //     offscreen.draw(character.spritewizard, &spriteShader);
 
-     window.draw(character.spritewizard);
+     offscreen.draw(character.spritewizard);
 
         
 
@@ -1111,37 +1118,62 @@ void Game::drawGamePlay()
     /** DEBUG DRAW */
     if (showRect)
     {
-        window.draw(rct1);
-        window.draw(rctColl);
+        offscreen.draw(rct1);
+        offscreen.draw(rctColl);
     }
     
     
     //if ((character.jumping==3) || (character.jumping==1))
     //{
-    // window.draw(particles);
+    // offscreen.draw(particles);
     //}
     
     
     
-    window.setView(defaultView);
+    offscreen.setView(defaultView);
 
     /** Drawing HUD head up display */
     for (int i = 0; i < livesCur; i++)
-        window.draw(hud.lives[i]);
+        offscreen.draw(hud.lives[i]);
 
     if ((character.spritewizard.getPosition().y > screenHeight + 100) && alive == 1)
     {
         alive = 0;
         livesCur--;
     }
-    window.draw(hud.textPoints);
+    offscreen.draw(hud.textPoints);
 
+    //updateOffScreen();
+    
+    
+
+    
 }
+
+
+void Game::updateOffScreen()
+{
+    sf::Sprite temp(offscreen.getTexture());
+    temp.scale(screenWidth/1920.0, screenHeight/1080.0);
+    temp.setPosition(0, 0);
+    
+    
+    
+    // Without this everything was upside down :)
+    
+
+    offscreen.display();
+    
+    window.draw(temp);
+    window.display();
+}
+
+
 
 void Game::drawEnvironment()
 {
 
-    window.setView(gameView);
+    offscreen.setView(gameView);
 
     /** Drawing tiles */
     drawTiles();
@@ -1161,7 +1193,7 @@ void Game::drawStars()
     for (std::vector<MagicSprite>::reverse_iterator it = tile.stars.rbegin(); it != tile.stars.rend(); ++it)
     {
         if (it->toRemove == false)
-            window.draw(*it);
+            offscreen.draw(*it);
     }
 }
 
@@ -1169,11 +1201,11 @@ void Game::drawSpears()
 {
     for (std::vector<MagicSprite>::reverse_iterator it = tile.spears.rbegin(); it != tile.spears.rend(); ++it)
     {
-        window.draw(*it);
+        offscreen.draw(*it);
     }
     for (std::vector<MagicSprite>::reverse_iterator it = tile.skulls.rbegin(); it != tile.skulls.rend(); ++it)
     {
-        window.draw(*it);
+        offscreen.draw(*it);
     }
 }
 
@@ -1181,7 +1213,7 @@ void Game::drawTiles()
 {
     for (std::vector<MagicSprite>::reverse_iterator it = tile.tiles.rbegin(); it != tile.tiles.rend(); ++it)
     {
-        window.draw(*it);
+        offscreen.draw(*it);
     }
 }
 /**
@@ -1201,8 +1233,8 @@ Game::Game(int screenWidthInit, int screenHeightInit)
     , window(ownVideoMode, "Magic Wizard")
     , wizardPos(character.spritewizard.getGlobalBounds())
     , showRect(false)
-    , defaultView(window.getDefaultView())
-    , gameView(sf::FloatRect(0, 0, 800, 600))
+    ,defaultView(window.getDefaultView())
+    , gameView(sf::FloatRect(0, 0, screenWidthInit, screenHeightInit))
     //, particles(10)
    
 {
@@ -1215,12 +1247,17 @@ Game::Game(int screenWidthInit, int screenHeightInit)
 
   
   
-  if(!offscreen.create(1280,720,false))
+  if(!offscreen.create(1920,1080,false))
   {
     std::exit(1);
   }
+  offscreen.setSmooth(true);
+  //defaultView.=
+  
+   //defaultView =
   
   
+  //defaultView(offscreen.getDefaultView());
     screenWidth = screenWidthInit;
     screenHeight = screenHeightInit;
 

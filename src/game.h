@@ -100,6 +100,8 @@ private:
     void addCollision(int,int);
     void delCollision(int,int);
     
+    void updateOffScreen();
+    
     void validateCollisions();
     int checkCollisionDirection(sf::FloatRect,sf::FloatRect);
     
