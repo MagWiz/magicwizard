@@ -19,3 +19,7 @@
 * sfx: jump : http://www.freesound.org/people/alex_audio/sounds/188582/
 * sfx: collect: http://www.freesound.org/people/DrMinky/sounds/166184/
 * sfx: bloog: http://www.freesound.org/people/Rock%20Savage/sounds/65924/
+
+## Shaders and some c++ elements
+
+* https://github.com/LaurentGomila/SFML-Game-Development-Book licensed here: https://github.com/LaurentGomila/SFML-Game-Development-Book/blob/master/License.txt
