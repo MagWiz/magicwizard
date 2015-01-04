@@ -1153,18 +1153,23 @@ void Game::drawGamePlay()
 
 void Game::updateOffScreen()
 {
+  
+      spriteShader.setParameter("source", offscreen.getTexture());
+
     sf::Sprite temp(offscreen.getTexture());
     temp.scale(screenWidth/1920.0, screenHeight/1080.0);
     temp.setPosition(0, 0);
     
-    
-    
-    // Without this everything was upside down :)
-    
-
+    // Without this everything was upside down :)    
     offscreen.display();
+
+    //sf::Texture temp2 =  temp.getTexture();
+    
+    
     
     window.draw(temp);
+    //temp.display();
+    //window.draw(temp);
     window.display();
 }
 
@@ -1239,7 +1244,7 @@ Game::Game(int screenWidthInit, int screenHeightInit)
    
 {
   
-  if (!spriteShader.loadFromFile("assets/shaders/full.vert", "assets/shaders/hello.frag"))
+  if (!spriteShader.loadFromFile("assets/shaders/simply.vert", "assets/shaders/simply.frag"))
 {
   
   std::exit(1);

@@ -7,6 +7,7 @@
 #include "home.h"
 #include "hud.h"
 #include "audio.h"
+#include "videoeffect.h"
 #include "enums.h"
 #include <utility>
 

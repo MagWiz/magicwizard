@@ -8,8 +8,8 @@ SFMLFLAGS=-lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
 SFML_LIBS=-lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
 CUSTOMFLAGS=-O4
 
-BUILDS=${SRC}/magicsprite.o ${SRC}/audio.o ${SRC}/tile.o ${SRC}/home.o ${SRC}/hud.o ${SRC}/character.o ${SRC}/background.o ${SRC}/game.o ${SRC}/main.o 
-SOURCES=${SRT}/magicsprite.cpp ${SRC}/audio.cpp ${SRC}/tile.cpp ${SRC}/home.cpp ${SRC}/hud.cpp ${SRC}/character.cpp ${SRC}/background.cpp ${SRC}/game.cpp ${SRC}/main.cpp
+BUILDS=${SRC}/magicsprite.o ${SRC}/audio.o ${SRC}/tile.o ${SRC}/home.o ${SRC}/hud.o ${SRC}/character.o ${SRC}/background.o ${SRC}/videoeffect.o  ${SRC}/game.o  ${SRC}/main.o 
+SOURCES=${SRT}/magicsprite.cpp ${SRC}/audio.cpp ${SRC}/tile.cpp ${SRC}/home.cpp ${SRC}/hud.cpp ${SRC}/character.cpp ${SRC}/background.cpp ${SRC}/videoeffect.o  ${SRC}/game.cpp ${SRC}/main.cpp
 
 all: mw
 
@@ -31,6 +31,9 @@ src/tile.o: src/tile.cpp src/tile.h
 src/background.o: src/background.cpp src/background.h
 	${CPP} ${CPPFLAGS} ${CUSTOMFLAGS} -c ${SRC}/background.cpp -o ${SRC}/background.o ${SFML_LIBS}
 
+src/videoeffect.o: src/videoeffect.cpp src/videoeffect.h
+	${CPP} ${CPPFLAGS} ${CUSTOMFLAGS} -c ${SRC}/videoeffect.cpp -o ${SRC}/videoeffect.o ${SFML_LIBS}
+	
 src/character.o: src/character.cpp src/character.h
 	${CPP} ${CPPFLAGS} ${CUSTOMFLAGS} -c ${SRC}/character.cpp -o ${SRC}/character.o ${SFML_LIBS}
 
