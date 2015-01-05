@@ -31,9 +31,12 @@ void BloomEffect::perform(const sf::RenderTexture& input, sf::RenderTexture& out
    
   if ((inputSize.x!=sizeX)||(inputSize.y!=sizeY))
   {
-
+    
     textureBright.create(inputSize.x, inputSize.y);
     textureBlur.create(inputSize.x, inputSize.y);  
+    textureBright.setSmooth(true);
+    textureBlur.setSmooth(true);
+    output.setSmooth(true);
     sizeX = inputSize.x;
     sizeY = inputSize.y;
   }
