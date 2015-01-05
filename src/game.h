@@ -28,7 +28,6 @@ private:
         float deltaTime;
 
 	
-    float sineOscilatorAngle;
     
 	
 	
@@ -45,9 +44,8 @@ private:
   
   
   sf::Shader spriteShader;
-  MWEngine::VideoEffect vfx;
-  MWEngine::BloomEffect bfx;
-  
+
+
 
 
 private:
@@ -56,8 +54,7 @@ private:
     int screenHeight;
     
     
-    int renderWidth;
-    int renderHeight;
+    
     
     sf::RectangleShape rct1;
     sf::RectangleShape rct2;
@@ -93,6 +90,13 @@ private:
     int speedGear;
     int speedGearPrevious;
     int speedGearMax;
+    
+    int renderWidth;
+    int renderHeight;
+      MWEngine::VideoEffect vfx;
+  MWEngine::BloomEffect bfx;
+      float sineOscilatorAngle;
+    
 
 private:
     void createWindow(int, int);

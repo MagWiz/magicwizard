@@ -2,6 +2,6 @@
 
 int main()
 {
-    MWEngine::Game gameEngine(800,600);
+    MWEngine::Game gameEngine(1280,720);
 }
 

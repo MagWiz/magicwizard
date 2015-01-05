@@ -20,12 +20,8 @@ void BloomEffect::perform(const sf::RenderTexture& input, sf::RenderTexture& out
   perform(input, output);
 }
 
-
-
-
 void BloomEffect::perform(const sf::RenderTexture& input, sf::RenderTexture& output)
 {
-
   
   sf::Vector2f inputSize(input.getSize());
    

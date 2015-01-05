@@ -22,7 +22,7 @@ private:
 
 public:
 
-    void start();
+    void start(float posX);
     int defaultY;
 
     int  bloodFrame;

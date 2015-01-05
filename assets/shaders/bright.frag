@@ -1,6 +1,6 @@
 
 uniform sampler2D source;
-const float brightPassThreshold = 0.2;
+const float brightPassThreshold = 0.7;
 varying vec2 vTexCoord;
 
 void main(void) {

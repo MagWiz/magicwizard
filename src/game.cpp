@@ -672,6 +672,10 @@ void Game::logicLoop()
         }
 
         speedGearPrevious = speedGear;
+	
+	
+	
+	
         if (runningTime==0.0f)
         {
             speedGear = 0;
@@ -683,7 +687,6 @@ void Game::logicLoop()
         else if (runningTime > 0.0f && runningTime < 1.0f)
         {
             speedGear = 1;
-            gameView.setSize(805, 602);
 
             characterSpeed = 1.1f;
         }
@@ -693,43 +696,37 @@ void Game::logicLoop()
         (runningTime > 1.0f && runningTime < 2.0f)
         {
             speedGear = 1;
-            gameView.setSize(810, 605);
-            characterSpeed = 1.3f;
+
+characterSpeed = 1.3f;
         }
         else if
         (runningTime > 2.0f && runningTime < 3.0f)
         {
             speedGear = 2;
-            gameView.setSize(820, 610);
 
-            characterSpeed = 1.6f;
+characterSpeed = 1.6f;
         }
         else if (runningTime > 3.0f && runningTime < 4.0f)
         {
             speedGear = 3;
-            gameView.setSize(830, 615);
 
-            characterSpeed = 1.9f;
+characterSpeed = 1.9f;
         }
         else if (runningTime > 4.0f && runningTime < 5.0f)
         {
             speedGear = 4;
-            gameView.setSize(840, 620);
 
             characterSpeed = 2.2f;
         }
         else if ( runningTime == 5.0f)
         {
             speedGear = 5;
-            gameView.setSize(850, 625);
 
-            characterSpeed = characterSpeedMax;
         }
 
         else if (characterSpeed > characterSpeedMax)
         {
             speedGear = 5;
-            gameView.setSize(860, 630);
 
             characterSpeed = characterSpeedMax;
         }
@@ -782,7 +779,7 @@ void Game::logicLoop()
 
             hud.setLevel(level);
             tile.loadLevel(level);
-            character.start();
+            character.start(screenWidth/2);
             //hud.restart();
             nextLevel = false;
             character.moving = 0;
@@ -1022,7 +1019,7 @@ void Game::restartLevel()
 {
 
     tile.loadLevel(level);
-    character.start();
+    character.start(screenWidth/2);
     hud.createLives(livesCur);
     alive = 1;
     gameState = STATE_GAMEPLAY;
@@ -1328,6 +1325,7 @@ offscreenTmp.create(renderWidth,renderHeight,false);
 
     characterSpeed = 1.0f;
     characterSpeedMax = 2.5f;
+    character.spritewizard.setPosition(screenWidth/2, -0.0f);
 
     runningTime = 0.0f;
 
@@ -1376,7 +1374,7 @@ void Game::start()
     alive = 1;
     gameState = STATE_GAMEPLAY;
     tile.loadLevel(level);
-    character.start();
+    character.start(screenWidth/2);
     //livesCur = livesStart;
     hud.createLives(100);
     hud.restart();

@@ -47,7 +47,7 @@ void VideoEffect::bright(const sf::RenderTexture& input, sf::RenderTexture& outp
 void VideoEffect::blur(const sf::RenderTexture& input, sf::RenderTexture& output)
 {
  gBlurShader.setParameter("source", input.getTexture());
- gBlurShader.setParameter("blurSize", 1.0f/1900.0f+sineMod/1900.0f);
+ gBlurShader.setParameter("blurSize", 1.0f/10900.0f+sineMod/1900.0f);
  
   apply(gBlurShader, output);
   output.display();

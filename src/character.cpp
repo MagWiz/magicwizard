@@ -6,10 +6,10 @@
 using namespace std;
 namespace MWEngine
 {
-void Character::start()
+void Character::start(float posX)
 {
     stop();
-    spritewizard.setPosition(400.0f, -0.0f);
+    spritewizard.setPosition(posX, -0.0f);
 }
 
 Character::Character()
@@ -58,7 +58,7 @@ Character::Character()
     velocity = sf::Vector2f(0, 0);
     jumpSpeed = 10.0f;
     jumping = 2;
-    jumpSize = 170.0f;
+    jumpSize = 200.0f;
 
     m_frameTime = sf::seconds(0.2);
 
