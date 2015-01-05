@@ -3,7 +3,7 @@
 uniform sampler2D 	source;
 varying vec2 vTexCoord;
 
-const float blurSize = 1.0/512.0; // I've chosen this size because this will result in that every step will be one pixel wide if the RTScene texture is of size 512x512
+const float blurSize = 1.0/112.0; // I've chosen this size because this will result in that every step will be one pixel wide if the RTScene texture is of size 512x512
  
 void main(void)
 {

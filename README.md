@@ -39,3 +39,7 @@ https://magwiz.net
 
 ![Magic Wizard gameplay](https://magwiz.net/img/screenshots/MagicWizard_003.png)
 ![Magic Wizard level change](https://magwiz.net/img/screenshots/MagicWizard_002.png)
+
+## Ideas
+
+* More shaders - more aggressive blur while running etc

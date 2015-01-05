@@ -5,6 +5,7 @@
 namespace MWEngine
 {
 class VideoEffect
+
 {
 public:
     
@@ -15,6 +16,8 @@ public:
     void bright(const sf::RenderTexture& input, sf::RenderTexture& output);
     void blur(const sf::RenderTexture& input, sf::RenderTexture& output);
     void add(const sf::RenderTexture& input1,const sf::RenderTexture& input2,   sf::RenderTexture& output);
+    int sizeX;
+    int sizeY;
     
 private:
   sf::Shader brightShader;

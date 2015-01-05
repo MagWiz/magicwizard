@@ -8,6 +8,8 @@ using namespace std;
 namespace MWEngine
 {
 VideoEffect::VideoEffect()
+: sizeX(1)
+, sizeY(1)
 {
   if (!brightShader.loadFromFile("assets/shaders/simply.vert", "assets/shaders/bright.frag"))
   {
@@ -43,16 +45,16 @@ void VideoEffect::bright(const sf::RenderTexture& input, sf::RenderTexture& outp
 
 void VideoEffect::blur(const sf::RenderTexture& input, sf::RenderTexture& output)
 {
-  brightShader.setParameter("source", input.getTexture());
-  apply(brightShader, output);
+ gBlurShader.setParameter("source", input.getTexture());
+  apply(gBlurShader, output);
   output.display();
 }
 
 void VideoEffect::add(const sf::RenderTexture& input1,const sf::RenderTexture& input2,   sf::RenderTexture& output)
 {
-  brightShader.setParameter("source1", input1.getTexture());
-  brightShader.setParameter("source2", input2.getTexture());
-  apply(brightShader, output);
+  addShader.setParameter("source1", input1.getTexture());
+  addShader.setParameter("source2", input2.getTexture());
+  apply(addShader, output);
   output.display();
 }
 

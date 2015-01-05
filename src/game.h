@@ -7,7 +7,7 @@
 #include "home.h"
 #include "hud.h"
 #include "audio.h"
-#include "videoeffect.h"
+#include "bloomeffect.h"
 #include "enums.h"
 #include <utility>
 
@@ -41,6 +41,7 @@ private:
   
   sf::Shader spriteShader;
   MWEngine::VideoEffect vfx;
+  MWEngine::BloomEffect bfx;
   
 
 

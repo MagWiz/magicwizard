@@ -1155,7 +1155,7 @@ void Game::updateOffScreen()
 {
     // temporary texture for post effects processing   
     // post effects processing
-    vfx.bright(offscreen,offscreenTmp);
+    bfx.perform(offscreen,offscreenTmp);
          
     sf::Sprite temp(offscreenTmp.getTexture());
     temp.scale(screenWidth/(float)renderWidth, screenHeight/(float)renderHeight);
@@ -1254,6 +1254,7 @@ Game::Game(int screenWidthInit, int screenHeightInit)
 }
 offscreenTmp.create(renderWidth,renderHeight,false);
   VideoEffect vfx();
+  BloomEffect bfx();
   
   if(!offscreen.create(renderWidth,renderHeight,false))
   {
