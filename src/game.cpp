@@ -930,6 +930,7 @@ void Game::logicLoop()
     }
     window.clear(sf::Color(0, 0, 0));
 offscreen.clear(sf::Color(0,0,0));
+offscreenTmp.clear(sf::Color(0,0,0));
     
 
 
@@ -1014,7 +1015,6 @@ void Game::drawHome()
     offscreen.draw(bgd.spritebackMenu);
     offscreen.draw(homeScreen.textTitle);
     offscreen.draw(homeScreen.textStart);
-    updateOffScreen();
 
 }
 
@@ -1153,21 +1153,20 @@ void Game::drawGamePlay()
 
 void Game::updateOffScreen()
 {
-  
-      spriteShader.setParameter("source", offscreen.getTexture());
-
-    sf::Sprite temp(offscreen.getTexture());
-    temp.scale(screenWidth/1920.0, screenHeight/1080.0);
+    // temporary texture for post effects processing   
+    // post effects processing
+    vfx.bright(offscreen,offscreenTmp);
+         
+    sf::Sprite temp(offscreenTmp.getTexture());
+    temp.scale(screenWidth/(float)renderWidth, screenHeight/(float)renderHeight);
     temp.setPosition(0, 0);
-    
     // Without this everything was upside down :)    
-    offscreen.display();
-
-    //sf::Texture temp2 =  temp.getTexture();
+    //offscreenTmp.display();
     
-    
-    
+    offscreenTmp.display();
     window.draw(temp);
+     offscreenTmp.display();
+
     //temp.display();
     //window.draw(temp);
     window.display();
@@ -1240,8 +1239,12 @@ Game::Game(int screenWidthInit, int screenHeightInit)
     , showRect(false)
     ,defaultView(window.getDefaultView())
     , gameView(sf::FloatRect(0, 0, screenWidthInit, screenHeightInit))
+    , renderWidth(1920)
+    , renderHeight(1080)
     //, particles(10)
    
+    
+    
 {
   
   if (!spriteShader.loadFromFile("assets/shaders/simply.vert", "assets/shaders/simply.frag"))
@@ -1249,10 +1252,10 @@ Game::Game(int screenWidthInit, int screenHeightInit)
   
   std::exit(1);
 }
-
+offscreenTmp.create(renderWidth,renderHeight,false);
+  VideoEffect vfx();
   
-  
-  if(!offscreen.create(1920,1080,false))
+  if(!offscreen.create(renderWidth,renderHeight,false))
   {
     std::exit(1);
   }

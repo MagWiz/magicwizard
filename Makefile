@@ -8,14 +8,17 @@ SFMLFLAGS=-lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
 SFML_LIBS=-lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
 CUSTOMFLAGS=-O4
 
-BUILDS=${SRC}/magicsprite.o ${SRC}/audio.o ${SRC}/tile.o ${SRC}/home.o ${SRC}/hud.o ${SRC}/character.o ${SRC}/background.o ${SRC}/videoeffect.o  ${SRC}/game.o  ${SRC}/main.o 
-SOURCES=${SRT}/magicsprite.cpp ${SRC}/audio.cpp ${SRC}/tile.cpp ${SRC}/home.cpp ${SRC}/hud.cpp ${SRC}/character.cpp ${SRC}/background.cpp ${SRC}/videoeffect.o  ${SRC}/game.cpp ${SRC}/main.cpp
+BUILDS=${SRC}/magicsprite.o ${SRC}/helpers.o  ${SRC}/audio.o ${SRC}/tile.o ${SRC}/home.o ${SRC}/hud.o ${SRC}/character.o ${SRC}/background.o ${SRC}/videoeffect.o ${SRC}/bloomeffect.o  ${SRC}/game.o  ${SRC}/main.o 
+SOURCES=${SRT}/magicsprite.cpp ${SRC}/helpers.cpp ${SRC}/audio.cpp ${SRC}/tile.cpp ${SRC}/home.cpp ${SRC}/hud.cpp ${SRC}/character.cpp ${SRC}/background.cpp ${SRC}/videoeffect.o  ${SRC}/bloomeffect.o  ${SRC}/game.cpp ${SRC}/main.cpp
 
 all: mw
 
 src/magicsprite.o: src/magicsprite.cpp src/magicsprite.h
 	${CPP} ${CPPFLAGS} ${CUSTOMFLAGS} -c ${SRC}/magicsprite.cpp -o ${SRC}/magicsprite.o ${SFML_LIBS}
 
+src/helpers.o: src/helpers.cpp src/helpers.h
+	${CPP} ${CPPFLAGS} ${CUSTOMFLAGS} -c ${SRC}/helpers.cpp -o ${SRC}/helpers.o ${SFML_LIBS}
+	
 src/audio.o: src/audio.cpp src/audio.h
 	${CPP} ${CPPFLAGS} ${CUSTOMFLAGS} -c ${SRC}/audio.cpp -o ${SRC}/audio.o ${SFML_LIBS}
 
@@ -33,6 +36,10 @@ src/background.o: src/background.cpp src/background.h
 
 src/videoeffect.o: src/videoeffect.cpp src/videoeffect.h
 	${CPP} ${CPPFLAGS} ${CUSTOMFLAGS} -c ${SRC}/videoeffect.cpp -o ${SRC}/videoeffect.o ${SFML_LIBS}
+	
+
+src/bloomeffect.o: src/bloomeffect.cpp src/bloomeffect.h
+	${CPP} ${CPPFLAGS} ${CUSTOMFLAGS} -c ${SRC}/bloomeffect.cpp -o ${SRC}/bloomeffect.o ${SFML_LIBS}
 	
 src/character.o: src/character.cpp src/character.h
 	${CPP} ${CPPFLAGS} ${CUSTOMFLAGS} -c ${SRC}/character.cpp -o ${SRC}/character.o ${SFML_LIBS}

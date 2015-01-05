@@ -30,6 +30,7 @@ private:
     MWEngine::Home homeScreen;
 
     sf::RenderTexture offscreen;
+    sf::RenderTexture offscreenTmp;
     
     sf::VideoMode ownVideoMode;
     sf::RenderWindow window;
@@ -37,16 +38,21 @@ private:
         const bool showRect;
 	
   
-
+  
   sf::Shader spriteShader;
-
-
+  MWEngine::VideoEffect vfx;
+  
 
 
 private:
     int footSize;
-    int screenHeight;
     int screenWidth;
+    int screenHeight;
+    
+    
+    int renderWidth;
+    int renderHeight;
+    
     sf::RectangleShape rct1;
     sf::RectangleShape rct2;
     sf::RectangleShape rctColl;  
