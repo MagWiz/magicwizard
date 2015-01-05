@@ -10,6 +10,7 @@ namespace MWEngine
 VideoEffect::VideoEffect()
 : sizeX(1)
 , sizeY(1)
+, sineMod(0.0f)
 {
   if (!brightShader.loadFromFile("assets/shaders/simply.vert", "assets/shaders/bright.frag"))
   {
@@ -46,6 +47,8 @@ void VideoEffect::bright(const sf::RenderTexture& input, sf::RenderTexture& outp
 void VideoEffect::blur(const sf::RenderTexture& input, sf::RenderTexture& output)
 {
  gBlurShader.setParameter("source", input.getTexture());
+ gBlurShader.setParameter("blurSize", 1.0f/1900.0f+sineMod/1900.0f);
+ 
   apply(gBlurShader, output);
   output.display();
 }

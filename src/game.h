@@ -27,6 +27,11 @@ private:
 
         float deltaTime;
 
+	
+    float sineOscilatorAngle;
+    
+	
+	
     MWEngine::Home homeScreen;
 
     sf::RenderTexture offscreen;

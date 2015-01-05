@@ -18,6 +18,7 @@ public:
     void add(const sf::RenderTexture& input1,const sf::RenderTexture& input2,   sf::RenderTexture& output);
     int sizeX;
     int sizeY;
+    float sineMod;
     
 private:
   sf::Shader brightShader;

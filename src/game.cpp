@@ -1155,8 +1155,22 @@ void Game::updateOffScreen()
 {
     // temporary texture for post effects processing   
     // post effects processing
-    bfx.perform(offscreen,offscreenTmp);
          
+    
+    if (sineOscilatorAngle>180.0f)
+      sineOscilatorAngle=0.1;
+    
+    
+    
+    float velocityMod = abs(sin(sineOscilatorAngle));
+    if ((runningTime>0.0f)&&(characterSpeed>1.1f)&&(characterSpeed<2.4f))
+      velocityMod = velocityMod + (runningTime /0.49f);
+    else if ((runningTime>0.0f)&&(characterSpeed>2.4f))
+      velocityMod = velocityMod + (runningTime /0.89f);
+    bfx.perform(offscreen,offscreenTmp, velocityMod);
+
+    sineOscilatorAngle = sineOscilatorAngle + ( deltaTime/0.5f);
+    
     sf::Sprite temp(offscreenTmp.getTexture());
     temp.scale(screenWidth/(float)renderWidth, screenHeight/(float)renderHeight);
     temp.setPosition(0, 0);
@@ -1241,6 +1255,7 @@ Game::Game(int screenWidthInit, int screenHeightInit)
     , gameView(sf::FloatRect(0, 0, screenWidthInit, screenHeightInit))
     , renderWidth(1920)
     , renderHeight(1080)
+    , sineOscilatorAngle(0.1f)
     //, particles(10)
    
     
