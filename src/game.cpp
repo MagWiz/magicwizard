@@ -1045,6 +1045,7 @@ void Game::drawCharacterBlood()
 void Game::drawGameOver()
 {
     offscreen.setView(gameView);
+     
     offscreen.draw(hud.gameOver);
 }
 
@@ -1053,7 +1054,13 @@ void Game::drawStartLevel()
 {
     offscreen.setView(defaultView);
     //offscreen.draw(bgd.spriteStartLevel);
+    offscreen.draw(hud.spriteMessage);
     offscreen.draw(hud.startLevel);
+    offscreen.draw(hud.textMessageTitle);
+    offscreen.draw(hud.textMessageSubtitle);
+    offscreen.draw(hud.textMessage);
+    hud.updateMessageText(deltaTime);
+
 }
 
 void Game::drawTrees()

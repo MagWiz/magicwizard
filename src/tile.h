@@ -31,6 +31,8 @@ private:
     sf::Texture texturegroundF;
     sf::Texture texturegroundG;
 
+    
+    sf::Texture texturegroundSign;
 
 public:
     MagicSprite spriteground;
@@ -51,6 +53,8 @@ public:
     vector<MagicSprite> spears;
     vector<MagicSprite> stars;
     vector<MagicSprite> skulls;
+    
+    vector<MagicSprite> backgroundObjects ;
 
     
     vector<MagicSprite> spears_level;

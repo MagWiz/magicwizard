@@ -19,14 +19,29 @@ namespace MWEngine
 			vector<sf::Sprite> lives;
 			sf::Texture textureLife;
 			sf::Texture textureHud;
+			sf::Texture textureMessage;
 			sf::Sprite spriteLife;
 			sf::Sprite spriteHud;
 			sf::Sprite spriteHudLives;
+			sf::Sprite spriteMessage;
 
 			sf::Text textPoints;
 			sf::Text gameOver;
 			sf::Text startLevel;
 			sf::Text pressToContinue;
+			
+			
+			sf::Text textMessageTitle;
+			sf::Text textMessageSubtitle;
+			sf::Text textMessage;	
+			string stringMessage;
+			string stringMessageTmp;
+			
+			float lastLetterAdded;
+			float currentCharacterMessage;
+			
+			
+			
 			int screenWidth,screenHeight;
 
 			Hud(int, int, sf::Sprite, int);
@@ -35,6 +50,7 @@ namespace MWEngine
 			void createLives(int);
 			void collectStar();
 			void setLevel(int);
+			void updateMessageText(float deltaTime);
 
 	};
 }
