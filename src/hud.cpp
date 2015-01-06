@@ -14,7 +14,7 @@ void Hud::createLives(int livesCur)
     for (int i = 0; i < livesCur; i++)
     {
         sf::Sprite spriteLifeTmp = spriteLife;
-        spriteLife.setPosition(screenWidth - (i * 40) - 40, MWEngine::HUD_MARGIN_TOP) ;
+        spriteLife.setPosition(screenWidth - (i * 80) - 80, MWEngine::HUD_MARGIN_TOP) ;
         lives.push_back(spriteLife);
     }
 }
@@ -36,8 +36,8 @@ Hud::Hud(int widthX, int widthY, sf::Sprite spriteCharacter, int livesCur)
     // Points Text
     textPoints.setString("Points: 00");
     textPoints.setFont(fontBig);
-    textPoints.setCharacterSize(25);
-    textPoints.setColor(sf::Color::White);
+    textPoints.setCharacterSize(20);
+    textPoints.setColor(sf::Color::Black);
     textPoints.setStyle(sf::Text::Bold);
     textPoints.setPosition(10, MWEngine::HUD_MARGIN_TOP);
 

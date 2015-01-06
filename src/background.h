@@ -74,7 +74,14 @@ public:
     sf::Sprite spriteStartLevel;
     sf::Sprite spritebackMenu;
     sf::Sprite spriteExit;
+    sf::Texture tmpBlueTexture;
+    sf::Texture tmpDarkBlueTexture;
 
+    sf::Sprite spriteBgBasicBlue;
+    sf::Sprite spriteBgBasicDarkBlue;
+    
+    
+    
     sf::Texture textureplanet;
 
     sf::Sprite spriteplanet;
@@ -85,6 +92,8 @@ public:
     void initMove();
     void moveLeft(float, float);
     void moveRight(float, float);
+    
+    void moveVert(float, float);
 
 
 };

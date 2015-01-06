@@ -15,6 +15,20 @@ Background::Background(int widthX, int widthY)
     spriteExit.setTexture(textureExit);
     characterSpeed = 1.0f;
 
+    
+    if (!tmpBlueTexture.loadFromFile("assets/gfx/bg_basic_blue.png"))
+        exit(1);
+    
+    if (!tmpDarkBlueTexture.loadFromFile("assets/gfx/background_mountains.png"))
+        exit(1);    
+    
+    spriteBgBasicBlue.setTexture(tmpBlueTexture);
+    spriteBgBasicBlue.setPosition(0,0);
+
+
+    spriteBgBasicDarkBlue.setTexture(tmpDarkBlueTexture);
+    spriteBgBasicDarkBlue.setPosition(0,0);
+    
     if (!texturetree01.loadFromFile("assets/gfx/back/back01.png"))
         exit(1);
 
@@ -87,20 +101,22 @@ Background::Background(int widthX, int widthY)
 
 
 
-    spritebackMountainFront.setTexture(texturebackMountainNG);
-    spritebackMountainFront.setPosition(-400, 280);
     texturebackMountainNG.setRepeated(true);
+    spritebackMountainFront.setTexture(texturebackMountainNG);
+    spritebackMountainFront.setPosition(-400, 380);
     spritebackMountainFront.setTextureRect(sf::IntRect(0, 0, 3200, 400));
+    
+    
 
     spritebackMountainBack.setTexture(texturebackMountain);
-    spritebackMountainBack.setPosition(0, -300);
+    spritebackMountainBack.setPosition(0, 0);
 
 
     spritebackMountainCenter.setTexture(texturebackMountain);
     spritebackMountainCenter.setPosition(0, -500);
 
 
-    spritebackMountainBack.scale(1, 2);
+    //spritebackMountainBack.scale(1, 2);
     spritebackMountainCenter.scale(1, 3);
     spritebackMenu.scale(1, 1);
 
@@ -253,6 +269,16 @@ void Background::moveRight(float deltaTime, float characterSpeed)
     }*/
 
 }
+
+void Background::moveVert(float deltaTime, float posY)
+{
+     spritebackMountainFront.setPosition(spritebackMountainFront.getPosition().x, 380+(posY/25.0f));
+     
+     // For the second background - not active now
+     //spriteBgBasicDarkBlue.setPosition(spriteBgBasicDarkBlue.getPosition().x, -120-(posY/15.0f));
+     
+}
+
 
 void Background::printMessage()
 {

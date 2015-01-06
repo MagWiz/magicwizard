@@ -314,7 +314,13 @@ void Game::eventLoop()
             direction = MWEngine::STOP;
             characterSpeed = 0.0f;
             runningClock.restart();
-            runningTime = 0.0f;
+	    if (runningTime>0.0f)
+	    {
+	      runningTime = runningTime - deltaTime;
+	    }
+	    else if (runningTime<0.0f)
+	      runningTime = 0.0f;
+	     
         } /// Stops
     }
     else if ((gameState == STATE_GAMEPLAY) && (alive == 0) && (showGameOver))
@@ -1072,9 +1078,10 @@ void Game::drawGamePlay()
 
     offscreen.setView(gameView);
 
-    offscreen.draw(bgd.spriteback);
-    offscreen.draw(bgd.spritebackMountainBack);
-    
+    //offscreen.draw(bgd.spriteback);
+    offscreen.draw(bgd.spriteBgBasicBlue);
+    //offscreen.draw(bgd.spriteBgBasicDarkBlue);
+    bgd.moveVert(deltaTime, -character.spritewizard.getPosition().y);
     sf::Vector2f parPos = sf::Vector2f(character.spritewizard.getPosition());
     
     parPos.x =parPos.x + (character.spritewizard.getLocalBounds().width)/2;
@@ -1090,7 +1097,7 @@ void Game::drawGamePlay()
     offscreen.draw(bgd.spritebackMountainFront);
 
     /** Drawing a cloud */
-    offscreen.draw(bgd.spriteCloud);
+    //offscreen.draw(bgd.spriteCloud);
 
     /** Drawing a planet */
     offscreen.draw(bgd.spriteplanet);
@@ -1250,7 +1257,7 @@ Game::Game(int screenWidthInit, int screenHeightInit)
     , showRect(false)
     ,defaultView(window.getDefaultView())
     , gameView(sf::FloatRect(0, 0, screenWidthInit, screenHeightInit))
-    , renderWidth(1920)
+    , renderWidth( 1920) 
     , renderHeight(1080)
     , sineOscilatorAngle(0.1f)
     //, particles(10)
