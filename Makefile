@@ -13,7 +13,7 @@ SOURCES=${SRT}/magicsprite.cpp ${SRC}/helpers.cpp ${SRC}/audio.cpp ${SRC}/tile.c
 
 all: mw
 
-src/magicsprite.o: src/magicsprite.cpp src/magicsprite.h
+src/magicsprite.o: src/magicsprite.cpp src/magicsprite.h src/enums.h
 	${CPP} ${CPPFLAGS} ${CUSTOMFLAGS} -c ${SRC}/magicsprite.cpp -o ${SRC}/magicsprite.o ${SFML_LIBS}
 
 src/helpers.o: src/helpers.cpp src/helpers.h
@@ -25,13 +25,13 @@ src/audio.o: src/audio.cpp src/audio.h
 src/home.o: src/home.cpp src/home.h
 	${CPP} ${CPPFLAGS} ${CUSTOMFLAGS} -c ${SRC}/home.cpp -o ${SRC}/home.o ${SFML_LIBS}
 
-src/hud.o: src/hud.cpp src/hud.h
+src/hud.o: src/hud.cpp src/hud.h src/enums.h
 	${CPP} ${CPPFLAGS} ${CUSTOMFLAGS} -c ${SRC}/hud.cpp -o ${SRC}/hud.o ${SFML_LIBS}
 
-src/tile.o: src/tile.cpp src/tile.h
+src/tile.o: src/tile.cpp src/tile.h src/enums.h
 	${CPP} ${CPPFLAGS} ${CUSTOMFLAGS} -c ${SRC}/tile.cpp -o ${SRC}/tile.o ${SFML_LIBS}
 
-src/background.o: src/background.cpp src/background.h
+src/background.o: src/background.cpp src/background.h src/enums.h
 	${CPP} ${CPPFLAGS} ${CUSTOMFLAGS} -c ${SRC}/background.cpp -o ${SRC}/background.o ${SFML_LIBS}
 
 src/videoeffect.o: src/videoeffect.cpp src/videoeffect.h
@@ -41,10 +41,10 @@ src/videoeffect.o: src/videoeffect.cpp src/videoeffect.h
 src/bloomeffect.o: src/bloomeffect.cpp src/bloomeffect.h
 	${CPP} ${CPPFLAGS} ${CUSTOMFLAGS} -c ${SRC}/bloomeffect.cpp -o ${SRC}/bloomeffect.o ${SFML_LIBS}
 	
-src/character.o: src/character.cpp src/character.h
+src/character.o: src/character.cpp src/character.h src/enums.h
 	${CPP} ${CPPFLAGS} ${CUSTOMFLAGS} -c ${SRC}/character.cpp -o ${SRC}/character.o ${SFML_LIBS}
 
-src/game.o: src/game.cpp src/game.h
+src/game.o: src/game.cpp src/game.h src/enums.h
 	${CPP} ${CPPFLAGS} ${CUSTOMFLAGS} -c ${SRC}/game.cpp -o ${SRC}/game.o ${SFML_LIBS}
 
 

@@ -27,6 +27,8 @@ Hud::Hud(int widthX, int widthY, sf::Sprite spriteCharacter, int livesCur)
     screenWidth = widthX;
     screenHeight = widthY;
     textureLife.loadFromFile("assets/gfx/wizard_2.png");
+    textureHud.loadFromFile("assets/gfx/hud.png");
+    spriteHud.setTexture(textureHud);
     points = 0;
     sf::FloatRect textRect;
     if (!fontBig.loadFromFile("assets/fonts/TradeWinds-Regular.ttf"))
@@ -39,7 +41,7 @@ Hud::Hud(int widthX, int widthY, sf::Sprite spriteCharacter, int livesCur)
     textPoints.setCharacterSize(20);
     textPoints.setColor(sf::Color::Black);
     textPoints.setStyle(sf::Text::Bold);
-    textPoints.setPosition(10, MWEngine::HUD_MARGIN_TOP);
+    textPoints.setPosition(MWEngine::HUD_MARGIN_LEFT, MWEngine::HUD_MARGIN_TOP);
 
 
 

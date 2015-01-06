@@ -50,7 +50,8 @@ enum
 
 enum
 {
-	HUD_MARGIN_TOP = 20
+	HUD_MARGIN_TOP = 30,
+	HUD_MARGIN_LEFT = 50
 };
 
 }

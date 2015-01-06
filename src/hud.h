@@ -18,7 +18,9 @@ namespace MWEngine
 			int points;
 			vector<sf::Sprite> lives;
 			sf::Texture textureLife;
+			sf::Texture textureHud;
 			sf::Sprite spriteLife;
+			sf::Sprite spriteHud;
 			sf::Text textPoints;
 			sf::Text gameOver;
 			sf::Text startLevel;

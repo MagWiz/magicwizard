@@ -1145,6 +1145,7 @@ void Game::drawGamePlay()
         alive = 0;
         livesCur--;
     }
+    offscreen.draw(hud.spriteHud);
     offscreen.draw(hud.textPoints);
 
     //updateOffScreen();
