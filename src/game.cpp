@@ -931,12 +931,12 @@ characterSpeed = 1.9f;
            // TODO: remove
         }
     }
-    window.clear(sf::Color(0, 0, 0));
-offscreen.clear(sf::Color(0,0,0));
-offscreenTmp.clear(sf::Color(0,0,0));
     
-
-
+    sf::Color bgdColor(82,184,224);
+    window.clear(bgdColor);
+    offscreen.clear(bgdColor);
+    offscreenTmp.clear(bgdColor);
+    
 
     /*
 
@@ -1052,7 +1052,7 @@ void Game::drawGameOver()
 void Game::drawStartLevel()
 {
     offscreen.setView(defaultView);
-    offscreen.draw(bgd.spriteStartLevel);
+    //offscreen.draw(bgd.spriteStartLevel);
     offscreen.draw(hud.startLevel);
 }
 
