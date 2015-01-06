@@ -12,7 +12,7 @@
 * Dark Background: Example: "Created by Indie Squid http://indiesquid.com" 
 * Clouds: Jordan Trudgett http://opengameart.org/content/backdrops-for-story-and-level-for-ardentryst-by-jordan-trudgett
 * Background: rubberduck http://opengameart.org/content/another-background-made-from-glitch-assets
-
+* Fantasy UI Elements http://opengameart.org/content/fantasy-ui-elements-by-ravenmore
 ## Sound
 
 * Music - bluszcz

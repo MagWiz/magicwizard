@@ -1137,6 +1137,7 @@ void Game::drawGamePlay()
     offscreen.setView(defaultView);
 
     /** Drawing HUD head up display */
+    offscreen.draw(hud.spriteHudLives);
     for (int i = 0; i < livesCur; i++)
         offscreen.draw(hud.lives[i]);
 

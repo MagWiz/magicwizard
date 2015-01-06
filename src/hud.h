@@ -21,6 +21,8 @@ namespace MWEngine
 			sf::Texture textureHud;
 			sf::Sprite spriteLife;
 			sf::Sprite spriteHud;
+			sf::Sprite spriteHudLives;
+
 			sf::Text textPoints;
 			sf::Text gameOver;
 			sf::Text startLevel;

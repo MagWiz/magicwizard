@@ -13,23 +13,26 @@ void Hud::createLives(int livesCur)
     lives.clear();
     for (int i = 0; i < livesCur; i++)
     {
-        sf::Sprite spriteLifeTmp = spriteLife;
-        spriteLife.setPosition(screenWidth - (i * 80) - 80, MWEngine::HUD_MARGIN_TOP) ;
+        spriteLife.setPosition(screenWidth - (i * HUD_MARGIN_LEFT/2) - HUD_MARGIN_LEFT*2, MWEngine::HUD_MARGIN_TOP) ;
         lives.push_back(spriteLife);
     }
 }
 
 Hud::Hud(int widthX, int widthY, sf::Sprite spriteCharacter, int livesCur)
+: points(0)
+, screenWidth(widthX)
+, screenHeight(widthY)
 {
-
-    points = 0;
+    
     spriteLife = spriteCharacter;
-    screenWidth = widthX;
-    screenHeight = widthY;
+    spriteLife.scale(0.5f, 0.5f);
     textureLife.loadFromFile("assets/gfx/wizard_2.png");
     textureHud.loadFromFile("assets/gfx/hud.png");
     spriteHud.setTexture(textureHud);
-    points = 0;
+    spriteHudLives.setTexture(textureHud);
+    
+    spriteHudLives.setPosition(widthX-(textureHud.getSize().x)-1,0);
+    
     sf::FloatRect textRect;
     if (!fontBig.loadFromFile("assets/fonts/TradeWinds-Regular.ttf"))
     {
