@@ -40,6 +40,7 @@ private:
     sf::Texture textureB5;
     sf::Texture textureB6;
     sf::Texture textureB7;
+    sf::Texture textureB8;
     
 
 public:

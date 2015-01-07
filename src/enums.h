@@ -57,9 +57,10 @@ enum
     B2_BUSH1,
     B3_BUSH2,
     B4_BUSH3,
-    B5_TREE1,
-    B6_TREE2,
-    B7_TREE3
+    B5_BUSH4,
+    B6_TREE1,
+    B7_TREE2,
+    B8_TREE3
 };
 
 enum

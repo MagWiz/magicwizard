@@ -87,12 +87,15 @@ void Tile::loadTiles()
      if ( !textureB4.loadFromFile ( "assets/gfx/back/bush_3.png" ) )
           exit ( 1 );
 
-     if ( !textureB5.loadFromFile ( "assets/gfx/back/tree_1.png" ) )
+     if ( !textureB5.loadFromFile ( "assets/gfx/back/bush_4.png" ) )
+          exit ( 1 );     
+     
+     if ( !textureB6.loadFromFile ( "assets/gfx/back/tree_1.png" ) )
           exit ( 1 );
-     if ( !textureB6.loadFromFile ( "assets/gfx/back/tree_2.png" ) )
+     if ( !textureB7.loadFromFile ( "assets/gfx/back/tree_2.png" ) )
           exit ( 1 );
 
-     if ( !textureB7.loadFromFile ( "assets/gfx/back/tree_3.png" ) )
+     if ( !textureB8.loadFromFile ( "assets/gfx/back/tree_3.png" ) )
           exit ( 1 );
 
 
@@ -103,6 +106,7 @@ void Tile::loadTiles()
      backgroundTextures.push_back ( textureB4 );
      backgroundTextures.push_back ( textureB5 );
      backgroundTextures.push_back ( textureB6 );
+     backgroundTextures.push_back ( textureB7 );
      backgroundTextures.push_back ( textureB7 );
 
 
@@ -367,17 +371,19 @@ void Tile::loadLevel ( int level )
                          else if ( compar == '[' ) {
                               addObject ( lineCol, lineY, MWEngine::B4_BUSH3 );
                          }
-
+                         else if ( compar == '"' ) {
+                              addObject ( lineCol, lineY, MWEngine::B5_BUSH4 );
+                         }
                          else if ( compar == ']' ) {
-                              addObject ( lineCol, lineY, MWEngine::B5_TREE1 );
+                              addObject ( lineCol, lineY, MWEngine::B6_TREE1);
                          }
 
                          else if ( compar == '?' ) {
-                              addObject ( lineCol, lineY, MWEngine::B6_TREE2 );
+                              addObject ( lineCol, lineY, MWEngine::B7_TREE2 );
                          }
 
                          else if ( compar == '|' ) {
-                              addObject ( lineCol, lineY, MWEngine::B7_TREE3 );
+                              addObject ( lineCol, lineY, MWEngine::B8_TREE3 );
                          }
 
 
@@ -463,21 +469,27 @@ void Tile::loadLevel ( int level )
                          lastChar = '0';
 
                     }
+                    
+		    else if ( ( lineSize == 0 ) && ( compar == '"' ) ) {
+                         addObject ( lineCol, lineY, MWEngine::B5_BUSH4 );
+                         lastChar = '0';
+
+                    }
 
                     else if ( ( lineSize == 0 ) && ( compar == ']' ) ) {
-                         addObject ( lineCol, lineY, MWEngine::B5_TREE1 );
+                         addObject ( lineCol, lineY, MWEngine::B6_TREE1 );
                          lastChar = '0';
 
                     }
 
                     else if ( ( lineSize == 0 ) && ( compar == '?' ) ) {
-                         addObject ( lineCol, lineY, MWEngine::B6_TREE2 );
+                         addObject ( lineCol, lineY, MWEngine::B7_TREE2 );
                          lastChar = '0';
 
                     }
 
                     else if ( ( lineSize == 0 ) && ( compar == '|' ) ) {
-                         addObject ( lineCol, lineY, MWEngine::B7_TREE3 );
+                         addObject ( lineCol, lineY, MWEngine::B8_TREE3 );
                          lastChar = '0';
 
                     }
