@@ -37,8 +37,8 @@ https://magwiz.net
 
 ## Screenshots
 
-![Magic Wizard gameplay](https://magwiz.net/img/screenshots/MagicWizard_003.png)
-![Magic Wizard level change](https://magwiz.net/img/screenshots/MagicWizard_002.png)
+![Magic Wizard gameplay](https://picup.it/media/pictures/mw720p_rhwPLBR.png)
+![Magic Wizard level change](https://picup.it/media/pictures/guimw.png)
 
 ## Ideas
 
