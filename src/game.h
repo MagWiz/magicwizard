@@ -102,6 +102,7 @@ private:
      void drawStars();
      void drawSpears();
      void drawTiles();
+     void drawBackgroundObjects();
      void drawTrees();
      void drawEnvironment();
      void drawGamePlay();

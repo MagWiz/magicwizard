@@ -1208,6 +1208,7 @@ void Game::drawEnvironment()
 
     /** Drawing tiles */
     drawTiles();
+    drawBackgroundObjects();
     /** Drawing stars */
     drawStars();
     /** Drawing spears */
@@ -1235,6 +1236,14 @@ void Game::drawSpears()
         offscreen.draw(*it);
     }
     for (std::vector<MagicSprite>::reverse_iterator it = tile.skulls.rbegin(); it != tile.skulls.rend(); ++it)
+    {
+        offscreen.draw(*it);
+    }
+}
+
+void Game::drawBackgroundObjects()
+{
+    for (std::vector<MagicSprite>::reverse_iterator it = tile.backgroundObjects.rbegin(); it != tile.backgroundObjects.rend(); ++it)
     {
         offscreen.draw(*it);
     }

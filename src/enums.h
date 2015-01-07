@@ -44,8 +44,22 @@ enum
 	TILE_R,
 	TILE_T,
 	TILE_F,
-	TILE_G
+	TILE_G,
+	TILE_SIGN_2,
+	
 
+};
+
+enum
+{
+    B0_SIGN1,
+    B1_SIGN2,
+    B2_BUSH1,
+    B3_BUSH2,
+    B4_BUSH3,
+    B5_TREE1,
+    B6_TREE2,
+    B7_TREE3
 };
 
 enum

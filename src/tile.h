@@ -32,7 +32,15 @@ private:
     sf::Texture texturegroundG;
 
     
-    sf::Texture texturegroundSign;
+    sf::Texture textureB0;
+    sf::Texture textureB1;
+    sf::Texture textureB2;
+    sf::Texture textureB3;
+    sf::Texture textureB4;
+    sf::Texture textureB5;
+    sf::Texture textureB6;
+    sf::Texture textureB7;
+    
 
 public:
     MagicSprite spriteground;
@@ -41,6 +49,9 @@ public:
     MagicSprite spriteExit;
     sf::Texture textureExit;
     MagicSprite sprite;
+    
+    MagicSprite spriteObject;
+    
     int blockSize;
     float scaleSize;
     int rows;
@@ -54,11 +65,14 @@ public:
     vector<MagicSprite> stars;
     vector<MagicSprite> skulls;
     
+    
     vector<MagicSprite> backgroundObjects ;
 
     
     vector<MagicSprite> spears_level;
     vector<MagicSprite> stars_level;
+    
+    vector<sf::Texture> backgroundTextures;
 
 private:
     sf::Texture texturespear;
@@ -86,6 +100,7 @@ public:
     void addSkull(int, int, int);
     void addStar(int, int, int);
     void loadLevel(int);
+    void addObject (  int lineCol, int lineY, int tileType);
 };
 }
 #endif

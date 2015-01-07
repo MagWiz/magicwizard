@@ -157,7 +157,7 @@ void Hud::setLevel(int levelNumber)
 
 void Hud::updateMessageText(float deltaTime)
 {
-  std::cout << "updateMessageText " << lastLetterAdded << " " << deltaTime << " " << stringMessage.size() << " " << stringMessageTmp.size() <<  std::endl;
+  //std::cout << "updateMessageText " << lastLetterAdded << " " << deltaTime << " " << stringMessage.size() << " " << stringMessageTmp.size() <<  std::endl;
   lastLetterAdded += deltaTime;
   if (lastLetterAdded>0.1f)
   {
