@@ -37,10 +37,14 @@ namespace MWEngine
 			string stringMessage;
 			string stringMessageTmp;
 			
+			
+			sf::Text textFPS;
+			string stringFPS;
+			
 			float lastLetterAdded;
 			float currentCharacterMessage;
 			
-			
+			sf::Clock lastFPSUpdate;
 			
 			int screenWidth,screenHeight;
 

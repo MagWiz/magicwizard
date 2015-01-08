@@ -29,13 +29,14 @@ Hud::Hud(int widthX, int widthY, sf::Sprite spriteCharacter, int livesCur)
 
  
     currentCharacterMessage = 0;
-  
+    
     spriteLife = spriteCharacter;
     spriteLife.scale(0.5f, 0.5f);
     textureLife.loadFromFile("assets/gfx/wizard_2.png");
     textureHud.loadFromFile("assets/gfx/hud.png");
     textureMessage.loadFromFile("assets/gfx/back/bigmessage.png");
     
+    lastFPSUpdate  = sf::Clock();
     
     spriteHud.setTexture(textureHud);
     spriteHudLives.setTexture(textureHud);
@@ -46,6 +47,8 @@ Hud::Hud(int widthX, int widthY, sf::Sprite spriteCharacter, int livesCur)
     spriteMessage.setTexture(textureMessage);
 
     spriteMessage.setPosition(widthX/2-textureMessage.getSize().x/2,widthY/2-textureMessage.getSize().y/2);
+
+    stringFPS = "FPS: ";
 
     
     sf::FloatRect textRect;
@@ -62,6 +65,13 @@ Hud::Hud(int widthX, int widthY, sf::Sprite spriteCharacter, int livesCur)
     textPoints.setPosition(MWEngine::HUD_MARGIN_LEFT, MWEngine::HUD_MARGIN_TOP);
 
 
+        textFPS.setFont(fontBig);
+    textFPS.setCharacterSize(10 );
+    textFPS.setString(stringFPS);
+    textFPS.setPosition(MWEngine::HUD_MARGIN_LEFT+150, MWEngine::HUD_MARGIN_TOP+10);
+        textFPS.setColor(sf::Color::Black);
+    
+    
     textMessageTitle.setFont(fontBig);
     textMessageTitle.setString("Magic Wizard");
     textMessageTitle.setCharacterSize(30);

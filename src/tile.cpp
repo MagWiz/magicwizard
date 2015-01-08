@@ -129,8 +129,6 @@ void Tile::addExit ( int lineX, int lineY )
 
 void Tile::addObject ( int lineX, int lineY, int tileType )
 {
-     cout << "addObject" <<  " tileType " << tileType << " "  << lineX << " " << lineY    <<  endl;
-
      MagicSprite spritegroundTmp;
 
 

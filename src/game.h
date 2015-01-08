@@ -10,6 +10,7 @@
 #include "bloomeffect.h"
 #include "enums.h"
 #include <utility>
+#include <math.h>   
 
 namespace MWEngine {
 class Game {
@@ -136,6 +137,7 @@ public:
 
      void loop();
      void stop();
+     float lastTime;
 
 };
 }
