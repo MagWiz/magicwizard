@@ -990,6 +990,8 @@ void Game::drawGamePlay()
      //particles.update(tmpTime);
      //offscreen.draw(bgd.spritebackMountainCenter);
      offscreen.draw ( bgd.spritebackMountainFront );
+     offscreen.draw( bgd.spriteWater2 );
+     offscreen.draw( bgd.spriteWater );
 
      /** Drawing a cloud */
      //offscreen.draw(bgd.spriteCloud);
@@ -1224,10 +1226,7 @@ Game::Game ( int screenWidthInit, int screenHeightInit )
      audioEngine.playMusicMenu();
      direction = MWEngine::STOP;
      directionPrevious = MWEngine::STOP;
-     bgd.initScale();
-     bgd.initMove();
-
-
+     
      characterSpeed = 1.0f;
      characterSpeedMax = 2.5f;
      character.spritewizard.setPosition ( screenWidth/2, -0.0f );
@@ -1274,7 +1273,9 @@ Game::Game ( int screenWidthInit, int screenHeightInit )
           while ( window.pollEvent ( event ) )
                eventLoop();
           logicLoop();
+	  bgd.update(deltaTime);
           drawLoop();
+	  
 
      }
 

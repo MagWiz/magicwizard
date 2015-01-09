@@ -2,6 +2,7 @@
 #define BACKGROUND_H
 #include <SFML/Graphics.hpp>
 #include "enums.h"
+#include <math.h>
 
 namespace MWEngine
 {
@@ -27,6 +28,11 @@ public:
     sf::Texture textureground;
     sf::Texture textureExit;
 
+    sf::Texture textureWater;
+    sf::Texture textureWater2;
+
+    
+    
     sf::Sprite spritetile00;
     sf::Sprite spritetile01;
     sf::Sprite spritetile02;
@@ -57,6 +63,8 @@ public:
 
 
     sf::Sprite tiles [8];
+    sf::Sprite spriteWater;
+    sf::Sprite spriteWater2;
 
     /*    sf::Sprite trees [4];
         sf::Sprite trees2 [4];
@@ -87,13 +95,22 @@ public:
     sf::Sprite spriteplanet;
     sf::Texture textureCloud;
     sf::Sprite spriteCloud;
+    
+    float oscSinCurrentAngle;
+    sf::Clock oscClock;
+    float oscInterval;
+    int oscMod;
+
+    
+    
     void printMessage();
-    void initScale();
-    void initMove();
+
     void moveLeft(float, float);
     void moveRight(float, float);
     
     void moveVert(float, float);
+    
+    void update(float);
 
 
 };
