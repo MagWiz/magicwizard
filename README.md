@@ -1,5 +1,7 @@
 # Magic Wizard
 
+[![Join the chat at https://gitter.im/MagWiz/magicwizard](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/MagWiz/magicwizard?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 ## Simple Crossplatform 2D Game
 
 ![MagWiz01](https://magwiz.net/img/screenshots/MagicWizard_001.png)
