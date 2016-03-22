@@ -1,4 +1,5 @@
 #!/bin/bash
+# https://gist.github.com/stephenturner/e3bc5cfacc2dc67eca8b
 cat /etc/centos-release
 sudo yum install epel-release
 sudo yum install mesa-libGL-devel xcb-util-image-devel libudev-devel libjpeg-devel openal-devel libvorbis-devel flac-devel
@@ -7,7 +8,8 @@ tar -xzvf /tmp/sfml.tar.gz
 sudo cp -r SFML-2.3.2/* /usr/
 sudo rpm --import http://ftp.scientificlinux.org/linux/scientific/5x/x86_64/RPM-GPG-KEYs/RPM-GPG-KEY-cern
 sudo wget -O /etc/yum.repos.d/slc6-devtoolset.repo http://linuxsoft.cern.ch/cern/devtoolset/slc6-devtoolset.repo
-sudo yum install devtoolset-2
+sudo yum install devtoolset-2-gcc-c++ 
+#sudo yum install devtoolset-2
 scl enable devtoolset-2 bash
 gcc --version
 g++ --version
