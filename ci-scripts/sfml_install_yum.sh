@@ -5,4 +5,9 @@ sudo yum install mesa-libGL-devel xcb-util-image-devel libudev-devel libjpeg-dev
 wget http://www.sfml-dev.org/files/SFML-2.3.2-linux-gcc-64-bit.tar.gz -O /tmp/sfml.tar.gz
 tar -xzvf /tmp/sfml.tar.gz
 sudo cp -r SFML-2.3.2/* /usr/
-
+sudo rpm --import http://ftp.scientificlinux.org/linux/scientific/5x/x86_64/RPM-GPG-KEYs/RPM-GPG-KEY-cern
+sudo wget -O /etc/yum.repos.d/slc6-devtoolset.repo http://linuxsoft.cern.ch/cern/devtoolset/slc6-devtoolset.repo
+sudo yum install devtoolset-2
+scl enable devtoolset-2 bash
+gcc --version
+g++ --version
