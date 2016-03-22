@@ -10,6 +10,6 @@ sudo rpm --import http://ftp.scientificlinux.org/linux/scientific/5x/x86_64/RPM-
 sudo wget -O /etc/yum.repos.d/slc6-devtoolset.repo http://linuxsoft.cern.ch/cern/devtoolset/slc6-devtoolset.repo
 sudo yum install devtoolset-2-gcc-c++ 
 #sudo yum install devtoolset-2
-scl enable devtoolset-2 bash
+sudo scl enable devtoolset-2 bash
 gcc --version
 g++ --version
