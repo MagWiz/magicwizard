@@ -9,7 +9,7 @@ tar -xzvf /tmp/sfml.tar.gz
 sudo cp -r SFML-2.3.2/* /usr/
 sudo rpm --import http://ftp.scientificlinux.org/linux/scientific/5x/x86_64/RPM-GPG-KEYs/RPM-GPG-KEY-cern
 sudo wget -O /etc/yum.repos.d/slc6-devtoolset.repo http://linuxsoft.cern.ch/cern/devtoolset/slc6-devtoolset.repo
-sudo yum install devtoolset-2-gcc-c++ 
+sudo yum install devtoolset-2-binutils devtoolset-2-gcc-c++ 
 #sudo yum install devtoolset-2
 echo "Enable devtoolset-2"
 source /opt/rh/devtoolset-2/enable
