@@ -25,6 +25,17 @@ cd magicwizard
 make 
 ./mw
 ```
+## Level editor
+
+To launch the level editor you need install python bindings for sfml, for example:
+
+```sh
+sudo apt-get install python-sfml python3-sfml
+leveleditor/editor.py
+```
+
+
+
 ## Binaries
 
 There are some development builds, you can find them here: https://magwiz.net/builds/
