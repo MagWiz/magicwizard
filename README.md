@@ -20,7 +20,7 @@ Magic Wizard is a simply 2D platform game. Most game mechanics have been impleme
 Assuming that you have deb based distribution (Debian, Ubuntu among others):
 ```sh
 sudo apt-get install libsfml-dev
-git https://github.com/MagWiz/magicwizard.git
+git clone https://github.com/MagWiz/magicwizard.git
 cd magicwizard
 make 
 ./mw
